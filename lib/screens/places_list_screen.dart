@@ -20,7 +20,7 @@ class PlacesListScreen extends StatelessWidget {
         ],
       ),
       body: FutureBuilder(
-        future: Provider.of<GreatPlaces>(context).fetchAndSetPlaces(),
+        future: Provider.of<GreatPlaces>(context, listen: false).fetchAndSetPlaces(),
         builder: (ctx, snapshot) => snapshot.connectionState ==
                 ConnectionState.waiting
             ? Center(
