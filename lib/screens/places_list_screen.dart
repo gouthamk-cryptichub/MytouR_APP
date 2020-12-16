@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import './add_place_screen.dart';
-import '../providers/greate_places.dart';
+import '../providers/great_places.dart';
 
 class PlacesListScreen extends StatelessWidget {
   @override
