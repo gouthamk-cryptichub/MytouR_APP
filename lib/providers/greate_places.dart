@@ -33,7 +33,6 @@ class GreatPlaces with ChangeNotifier {
 
   Future<void> fetchAndSetPlaces() async {
     final dataList = await DBHelper.getData('userPlaces');
-    print(dataList);
     _items = dataList
         .map(
           (item) => Place(
