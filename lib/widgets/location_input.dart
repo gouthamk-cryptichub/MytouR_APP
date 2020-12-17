@@ -16,15 +16,23 @@ class _LocationInputState extends State<LocationInput> {
     final locData = await Location().getLocation();
     // print(locData.latitude);
     // print(locData.longitude);
-    final staticMapImageurl = LocationHelper.generateLocationPreviewImage(latitude: locData.latitude, longitude: locData.longitude);
+    final staticMapImageurl = LocationHelper.generateLocationPreviewImage(
+        latitude: locData.latitude, longitude: locData.longitude);
     setState(() {
       _previewImageUrl = staticMapImageurl;
     });
   }
 
   Future<void> _selectOnMap() async {
-    final selectedLocation = await Navigator.of(context).push(MAterialPageRoute(fullscreenDialog: true, builder:(ctx) => MapScreen(isSelecting = true,),),);
-    if(selectedLocation == null) {
+    final selectedLocation = await Navigator.of(context).push(
+      MaterialPageRoute(
+        fullscreenDialog: true,
+        builder: (ctx) => MapScreen(
+          isSelecting: true,
+        ),
+      ),
+    );
+    if (selectedLocation == null) {
       return;
     }
     //...
@@ -68,7 +76,7 @@ class _LocationInputState extends State<LocationInput> {
             FlatButton.icon(
               color: Colors.grey[200],
               textColor: Theme.of(context).primaryColor,
-              onPressed:_selectOnMap,
+              onPressed: _selectOnMap,
               icon: Icon(Icons.map_outlined),
               label: Text('Choose on Map'),
             ),
